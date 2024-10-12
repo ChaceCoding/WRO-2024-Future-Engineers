@@ -36,8 +36,8 @@ Gearbox: 1:61.2 Planetary Gearbox
 
 Sensors:
 1. Ultrasonic Sensor: HC-SR04
-2. Long range TOF sensor: VL53LX
-3. Normal TOF Sensor: VL53L0X
-4. RGB Sensor: TCS34725 GY-33
+2. Gyroscope GY521 MPU6050
+3. Long range TOF sensor: VL53LX
+4. Normal TOF Sensor: VL53L0X
    
 Battery: 2x Panasonic 18650 2000mAH 3.7V Lithium Battery (7.4V 2S1P Series connection)
