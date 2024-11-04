@@ -10,6 +10,9 @@ Caleb Lo
 
 Chace Chan
 # Mobility
+We used DIrect Current(DC)motor, type JGA25-370, we selected this motor due to its various advantages. Firstly, the motor's design allows a high torque input, making it suitable for our competition, which emphasises speed. Also, it has a compact size, which made it suitable for our space contrained car, this helped us to gain a major advantage during the parking part of the competition, the smaller car size can park in the area more easily. Furthermore, the speed of the motor can be easily controlled using pulse-width modulation (PWM) or variable voltage, providing flexibility during the obstacles challenge. In addition, DC motor's simple design can also lower the time cost for maintenance and troubleshooting.
+However, we also found a few disadvantages about this type of DC motor. It has a intense heat generation after a long period of testing, which made it overheat easily,it cost us some time to let it stop and cool down. Also, it generates back electromotive force (EMF), which can affect performance and require careful management in circuit design. Although there are some disadvantages throughout the DC motor, but we understand that no design will be perfect, while considering the significant advantages, this motor is the best for us to utilise.
+For the chassis design, we used YFROBOT ackerman steering chassis, it is 
 # Power and Sensing
 We utilized a Time-of-Flight (TOF) sensor to measure the distance between the car and surrounding walls. The car relies on this distance data to determine the optimal moment to turn. Additionally, during the obstacle challenge round, the sensor detects nearby obstacles, allowing the car to gauge the distance between itself and these obstacles. This information helps the car make timely decisions to turn left or right based on traffic signs.
 # Obstacles
