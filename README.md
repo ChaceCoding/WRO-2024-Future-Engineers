@@ -1,8 +1,8 @@
 # WRO-2024-Future-Engineers
 # Team Information
-Team ID:
+Team ID: 712
 
-Team Name: Ctrl V
+Team Name: HK-Control V
 
 Team Members: 
 
@@ -16,37 +16,38 @@ The medium motor can be easily mounted onto various chassis designs using LEGO�
 
 This chassis has a vaious of advantages. First and foremost, the Ackermann steering geometry is designed to ensure that all wheels of the vehicle follow circular paths during a turn. This minimizes tire scrub and improves maneuverability. The steering linkage geometry allows for proper wheel alignment, enhancing stability and control. Besides, the design distributes forces evenly across the chassis, which helps in managing the load during turns and reduces wear on the tires and steering components. Also, the steering mechanism provides a mechanical advantage, allowing for easier steering with less effort. This is crucial for remote-controlled and autonomous vehicles. 
 
+
+
 # Power and Sensing
 In the Open Challenge, we utilized a Ultrasonic sensor to measure the distance between the car and surrounding walls. Firstly, we have set a target angle for the car to align to the middle of th track, the target angle starts at 0 degrees at first, and added 90 degrees after each turn. However, the EV3 gyro might drift and return incurate data. Therefore, we employed the Ultrasonic sensor to measure the distance data. When the car detects a wall near to its left or right side, it will adjust its moving angle to align itself to the middle of the track. Additionally, during the obstacle challenge round, the sensor detects nearby obstacles, allowing the car to gauge the distance between itself and these obstacles. This information helps the car make timely decisions to turn left or right based on traffic signs. 
 
-We heavily rely on the TOF sensor due to various reasons. Firstly, it has a high accuracy, with only at most 5% error to the tracking distance, which made us concistently and accurately finish our task, decreasing the "luck" factor through our project. Also, unlike Lidar and other types of sensor, it is less affected by ambient light conditions, allowing it to be more adaptable to different lighting environments. Besides, TOF is designed to operate efficiently, consuming less power compared to other sensing technologies, which can work well with our arduino, that cannot provide a high voltage.
-
 # Obstacles
-Huskylens is utilized throughout the obstacle challenge. We begin by programming the camera to divide the view into three zones, labeled from right to left as Zone 1, Zone 2, and Zone 3. When an obstacle is detected in one of these zones, the car will adjust its heading by a specific number of degrees corresponding to the zone in which the obstacle is located.
-After navigating past the obstacle, the car may be misaligned, tilting either to the right or left. To correct this, we employ a gyroscope to measure the degree of tilt and send this data to the Arduino Uno. The Arduino then adjusts the car's orientation, ensuring it is properly aligned and facing forward.
+For the obstacle challenge, we employed a Huskylens to identify the green and red blocks that represent traffic signs. We used color recognition to designate the green block as ID1 and the red block as ID2. Utilizing Mindstorm software, we introduced a variable called "zone no." to categorize the image input from the Huskylens into three rows based on the blocks' heights. The closest block was assigned "zone no. 1," the middle block received a value of 2, and the furthest block was designated "zone no. 3." The turning angle of the car was adjusted according to its distance from the block, determined by the previously mentioned zone number.
+
+Additionally, we implemented a variable named "zone letter," which divided the image from the Huskylens into three lateral zones: left, middle, and right. The left zone was assigned a value of 1, the middle zone a value of 2, and the right zone a value of 3. According to the rules, when the car detects a red traffic sign, it needs to turn right; thus, the car will turn more sharply if the block is closer to its right side. Conversely, for the green block, the car will turn more if the block is nearer to its left side. The maximum turning angle is set at 35 degrees, and the car will not turn when the block is already in the dodging zone, ensuring that it will not collide with the block.
+
+To facilitate this, we transformed the image input from the Huskylens into a 3 x 3 grid, implementing a simple form of proportional turning based on PID control, which provides the car with greater flexibility in dodging obstacles. After executing a dodge, we adjusted the car to align parallel to the track, using a gyro for self-correction. However, the car must also monitor the blocks in the next row and move towards the midline to maintain its consistency in dodging other blocks. Consequently, it will turn 35 degrees in the opposite direction of its previous dodge. We incorporated a loop interrupt in the program to allow the turn to be interrupted if necessary to dodge the next block. This process will continue until one of the ultrasonic sensors, mounted on the other sides, detects a distance greater than 200 degrees, prompting the car to turn 90 degrees and resume the traffic light dodging program.
+
 # Pictures
 # Videos
 # Design Description and Usage
 Usage:
 
-Chassis:         YFROBOT ackerman steering chassis (2WD)
+Chassis: Lego Built
 
 Traction Motor: 
 
-Main Board: Bluebird  Arduion Uno Broad (ATMEGA328P-AU)
+Main Board: EV3 Main Board
 
-Breakout board: AT8236 Motor Drive Breakout Board
+Motor: EV3 Medium Motor
 
-Motor: JGA25-370 Motor
+Battery: 45501, EV3 Rechargeable DC Battery, LEGO® MINDSTORMS®
 
-Battery: 2x Panasonic 18650 2000mAH 3.7V Lithium Battery (7.6V 2S1P Series connection)
 
-Gearbox: 1:61.2 Planetary Gearbox
 
 Sensors:
-1. Ultrasonic Sensor: HC-SR04
-2. Gyroscope GY521 MPU6050
-3. Long range TOF sensor: VL53LX
-4. Normal TOF Sensor: VL53L0X
+1. Lego Gyro Sensor
+2. Lego Ultrasonic Sensor x2
+3. Huskylens with IVROBOT adapter
    
 Battery: 2x Panasonic 18650 2000mAH 3.7V Lithium Battery (7.4V 2S1P Series connection)
