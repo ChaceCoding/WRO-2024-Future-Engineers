@@ -21,6 +21,9 @@ This chassis has a vaious of advantages. First and foremost, the Ackermann steer
 # Power and Sensing
 In the Open Challenge, we utilized a Ultrasonic sensor to measure the distance between the car and surrounding walls. Firstly, we have set a target angle for the car to align to the middle of th track, the target angle starts at 0 degrees at first, and added 90 degrees after each turn. However, the EV3 gyro might drift and return incurate data. Therefore, we employed the Ultrasonic sensor to measure the distance data. When the car detects a wall near to its left or right side, it will adjust its moving angle to align itself to the middle of the track. Additionally, during the obstacle challenge round, the sensor detects nearby obstacles, allowing the car to gauge the distance between itself and these obstacles. This information helps the car make timely decisions to turn left or right based on traffic signs. 
 
+Here is our code for the Hkskylens detection
+![Screenshot 2024-11-29 122506](https://github.com/user-attachments/assets/15e5b355-a5dd-4cbc-b047-70685485ddb0)
+
 # Obstacles
 For the obstacle challenge, we employed a Huskylens to identify the green and red blocks that represent traffic signs. We used color recognition to designate the green block as ID1 and the red block as ID2. Utilizing Mindstorm software, we introduced a variable called "zone no." to categorize the image input from the Huskylens into three rows based on the blocks' heights. The closest block was assigned "zone no. 1," the middle block received a value of 2, and the furthest block was designated "zone no. 3." The turning angle of the car was adjusted according to its distance from the block, determined by the previously mentioned zone number.
 
@@ -28,8 +31,13 @@ Additionally, we implemented a variable named "zone letter," which divided the i
 
 To facilitate this, we transformed the image input from the Huskylens into a 3 x 3 grid, implementing a simple form of proportional turning based on PID control, which provides the car with greater flexibility in dodging obstacles. After executing a dodge, we adjusted the car to align parallel to the track, using a gyro for self-correction. However, the car must also monitor the blocks in the next row and move towards the midline to maintain its consistency in dodging other blocks. Consequently, it will turn 35 degrees in the opposite direction of its previous dodge. We incorporated a loop interrupt in the program to allow the turn to be interrupted if necessary to dodge the next block. This process will continue until one of the ultrasonic sensors, mounted on the other sides, detects a distance greater than 200 degrees, prompting the car to turn 90 degrees and resume the traffic light dodging program.
 
-# Pictures
-# Videos
+Here is our code for the obstacle challenge:
+![Screenshot 2024-11-29 122838](https://github.com/user-attachments/assets/e34e09ff-7e9d-4cc5-abea-702593ffcbdc)
+
+# Pictures and Videos
+
+
+
 # Design Description and Usage
 
 During our coding process, we found too much instability within audrino, and too complex for us to handle. Therefore, we changed our coding software to EV3 mindstorm and EV3 classroom, which is easier to control and provides more stability within our design.
