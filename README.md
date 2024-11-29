@@ -31,6 +31,9 @@ To facilitate this, we transformed the image input from the Huskylens into a 3 x
 # Pictures
 # Videos
 # Design Description and Usage
+
+During our coding process, we found too much instability within audrino, and too complex for us to handle. Therefore, we changed our coding software to EV3 mindstorm and EV3 classroom, which is easier to control and provides more stability within our design.
+
 Usage:
 
 Chassis: Lego Built
@@ -42,8 +45,6 @@ Main Board: EV3 Main Board
 Motor: EV3 Medium Motor
 
 Battery: 45501, EV3 Rechargeable DC Battery, LEGO® MINDSTORMS®
-
-
 
 Sensors:
 1. Lego Gyro Sensor
